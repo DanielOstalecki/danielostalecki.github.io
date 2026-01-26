@@ -10,7 +10,7 @@
       --bg:#0b0f19;
       --panel:#020617;
       --text:#e5e7eb;
-      --muted: rgba(229,231,235,.72);
+      --muted: rgba(229,231,235,.70);
       --accent:#38bdf8;
       --border: rgba(56,189,248,.95);
       --shadow: 0 16px 50px rgba(0,0,0,.45);
@@ -26,104 +26,73 @@
       min-height:100vh;
     }
 
-    /* Sidebar */
-   /* Sidebar - upgraded */
-.sidebar{
-  width:240px;
-  background:linear-gradient(180deg, rgba(2,6,23,1), rgba(2,6,23,.92));
-  padding:26px 18px;
-  position:fixed;
-  height:100vh;
-  border-right:1px solid rgba(56,189,248,.14);
-}
+    /* ===== Sidebar (shared) ===== */
+    .sidebar{
+      width:240px;
+      background:linear-gradient(180deg, rgba(2,6,23,1), rgba(2,6,23,.92));
+      padding:26px 18px;
+      position:fixed;
+      height:100vh;
+      border-right:1px solid rgba(56,189,248,.14);
+    }
+    .sidebarTop{
+      background:rgba(15,23,42,.45);
+      border:1px solid rgba(56,189,248,.18);
+      border-radius:18px;
+      padding:14px 14px 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .nameMini{font-size:1.15rem;margin:0}
+    .nameMini a{color:var(--text);text-decoration:none}
+    .roleMini{margin:6px 0 0 0;font-size:.9rem;color:var(--muted)}
 
-.sidebarTop{
-  background:rgba(15,23,42,.45);
-  border:1px solid rgba(56,189,248,.18);
-  border-radius:18px;
-  padding:14px 14px 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-}
+    .nav{
+      margin-top:18px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .nav a{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      color:var(--text);
+      text-decoration:none;
+      background:rgba(15,23,42,.22);
+      border:1px solid rgba(56,189,248,.10);
+    }
+    .nav a:hover{
+      border-color: rgba(56,189,248,.35);
+      background:rgba(15,23,42,.40);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: rgba(229,231,235,.25);
+      box-shadow:none;
+    }
+    .nav a.active{
+      border-color: rgba(56,189,248,.65);
+      background:rgba(56,189,248,.12);
+    }
+    .nav a.active .dot{
+      background: rgba(56,189,248,.98);
+      box-shadow:0 0 0 4px rgba(56,189,248,.18);
+    }
 
-.sidebar .nameMini{
-  font-size:1.15rem;
-  margin:0;
-}
-.sidebar .nameMini a{
-  color:var(--text);
-  text-decoration:none;
-}
-.sidebar .roleMini{
-  margin:6px 0 0 0;
-  font-size:.9rem;
-  color:var(--muted);
-}
-
-.nav{
-  margin-top:18px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.nav a{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 12px;
-  border-radius:14px;
-  color:var(--text);
-  text-decoration:none;
-  background:rgba(15,23,42,.25);
-  border:1px solid rgba(56,189,248,.10);
-}
-
-.nav a:hover{
-  border-color: rgba(56,189,248,.35);
-  background:rgba(15,23,42,.45);
-}
-
-.nav a.active{
-  border-color: rgba(56,189,248,.65);
-  background:rgba(56,189,248,.12);
-}
-
-.nav .dot{
-  width:8px;height:8px;border-radius:99px;
-  background:rgba(56,189,248,.9);
-  box-shadow:0 0 0 4px rgba(56,189,248,.15);
-}
-
-.sidebarFooter{
-  position:absolute;
-  left:18px;
-  right:18px;
-  bottom:18px;
-  padding-top:12px;
-  border-top:1px solid rgba(56,189,248,.14);
-  color:var(--muted);
-  font-size:.9rem;
-}
-.sidebarFooter a{color:var(--accent);text-decoration:none}
-.sidebarFooter a:hover{text-decoration:underline}
-
-
-    /* Content */
+    /* ===== Content ===== */
     .content{
-      margin-left:260px;
+      margin-left:280px;
       width:100%;
       padding:60px 30px 80px;
     }
-    .wrap{
-      max-width:1200px;
-      margin:0 auto;
-    }
+    .wrap{max-width:1200px;margin:0 auto}
 
-    /* ✅ Center hero */
     .hero{
       display:flex;
       flex-direction:column;
-      align-items:center;     /* centra davvero */
+      align-items:center;
       text-align:center;
       gap:14px;
       margin-top:6px;
@@ -139,7 +108,6 @@
     .name{
       margin:0;
       font-size:3rem;
-      letter-spacing:.2px;
       line-height:1.1;
     }
     .role{
@@ -154,7 +122,6 @@
       font-size:1.05rem;
       color:rgba(229,231,235,.9);
     }
-
     .btn{
       display:inline-block;
       padding:11px 16px;
@@ -173,7 +140,7 @@
       text-align:center;
     }
 
-    /* ✅ Bigger featured cards */
+    /* Featured cards */
     .projects{
       display:grid;
       grid-template-columns: repeat(2, minmax(420px, 1fr));
@@ -190,39 +157,29 @@
       transition: transform .18s ease;
     }
     .card:hover{transform:translateY(-6px)}
-  .card img{
-  width:100%;
-  height:320px;              /* un filo più grande */
-  object-fit:cover;
-  object-position:center 20%; /* sposta l’inquadratura verso l’alto */
-  display:block;
-  background:var(--panel);
-}
-    .card .t{
+    .card img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+      display:block;
+      background:var(--panel);
+    }
+
+    /* ✅ Special crop ONLY for Celestial to hide the blue strip */
+    .card img.celestialCrop{
+      object-position:center 8%;
+    }
+
+    .t{
       padding:16px 16px 18px 16px;
       text-align:left;
     }
-    .card .t h3{
-      margin:0;
-      font-size:1.22rem;
-    }
-    .card .t .meta{
-      margin-top:7px;
-      color:var(--muted);
-      font-size:1rem;
-    }
-    .card a{
-      display:block;
-      text-decoration:none;
-      color:inherit;
-    }
+    .t h3{margin:0;font-size:1.22rem}
+    .t .meta{margin-top:7px;color:var(--muted);font-size:1rem}
+    .card a{display:block;text-decoration:none;color:inherit}
 
-    /* ✅ Contact block with photo */
-    .contactSection{
-      margin-top:54px;
-      display:flex;
-      justify-content:center;
-    }
+    /* Contact block with photo */
+    .contactSection{margin-top:54px;display:flex;justify-content:center}
     .contactCard{
       width:min(980px, 100%);
       background:var(--panel);
@@ -265,24 +222,18 @@
 </head>
 
 <body>
+  <div class="sidebar">
+    <div class="sidebarTop">
+      <p class="nameMini"><a href="about.html">Daniel Ostalecki</a></p>
+      <p class="roleMini">Game Designer</p>
+    </div>
 
- <div class="sidebar">
-  <div class="sidebarTop">
-    <p class="nameMini"><a href="about.html">Daniel Ostalecki</a></p>
-    <p class="roleMini">Game Designer</p>
+    <nav class="nav">
+      <a class="active" href="index.html"><span class="dot"></span>Home</a>
+      <a href="projects.html"><span class="dot"></span>Projects</a>
+      <a href="about.html"><span class="dot"></span>About</a>
+    </nav>
   </div>
-
-  <nav class="nav">
-    <a class="active" href="index.html"><span class="dot"></span>Home</a>
-    <a href="projects.html"><span class="dot"></span>Projects</a>
-    <a href="about.html"><span class="dot"></span>About</a>
-  </nav>
-
-  <div class="sidebarFooter">
-    <div><a href="mailto:d.ostalecki@gmail.com">d.ostalecki@gmail.com</a></div>
-    <div><a href="https://www.artstation.com/danielostalecki" target="_blank" rel="noopener">ArtStation</a></div>
-  </div>
-</div>
 
   <div class="content">
     <div class="wrap">
@@ -315,10 +266,10 @@
         </div>
 
         <div class="card">
-          <a href="projects/celestail.html">
-            <img src="assets/img/celestail.jpg" alt="Celestail">
+          <a href="projects/celestial.html">
+            <img class="celestialCrop" src="assets/img/celestial.jpg" alt="Celestial">
             <div class="t">
-              <h3>Celestail</h3>
+              <h3>Celestial</h3>
               <div class="meta">Alter Learning</div>
             </div>
           </a>
@@ -344,6 +295,6 @@
 
     </div>
   </div>
-
 </body>
 </html>
+
