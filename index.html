@@ -29,6 +29,31 @@
     @media (max-width:800px){
       .sidebar{position:relative;width:100%;height:auto}
       .content{margin-left:0;padding:34px 22px}
+      .heroBox{
+  display:inline-block;
+  background:#020617;
+  border:1px solid rgba(56,189,248,.5);
+  border-radius:16px;
+  padding:18px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.centerWrap{
+  max-width:980px;
+  margin:0 auto;   /* centra tutto */
+}
+
+.projects.featured{
+  grid-template-columns: repeat(2, minmax(360px, 1fr));
+  justify-content: center;
+}
+
+.projects.featured .project-card img{
+  height:220px;   /* più grande */
+}
+@media (max-width:900px){
+  .projects.featured{grid-template-columns:1fr;}
+}
     }
   </style>
 </head>
