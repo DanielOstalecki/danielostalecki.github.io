@@ -12,11 +12,9 @@
       --text:#e5e7eb;
       --muted: rgba(229,231,235,.72);
       --accent:#38bdf8;
-      --border: rgba(56,189,248,.55);
       --shadow: 0 14px 40px rgba(0,0,0,.40);
       --radius:16px;
     }
-
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -61,27 +59,22 @@
       align-items:start;
     }
 
-    /* Image panel - NO CROP */
+    /* ✅ Image area: NO label, NO border, NO “contour look” */
     .imagePanel{
-      background:var(--panel);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:16px;
-    }
-    .imagePanel .label{
-      margin:0 0 10px 0;
-      font-size:1rem;
-      opacity:.75;
+      background:transparent;     /* niente riquadro */
+      padding:0;                  /* niente spazi che “sembrano” card */
+      box-shadow:none;            /* niente ombra */
+      border-radius:0;
     }
     .imageWrap{
       width:100%;
-      border-radius:14px;
+      border-radius:16px;         /* solo angoli arrotondati dell’immagine */
       overflow:hidden;
       background:#000;
     }
     .imageWrap img{
       width:100%;
-      height:auto;              /* keeps full image */
+      height:auto;
       display:block;
     }
 
@@ -131,7 +124,6 @@
       box-shadow:var(--shadow);
       padding:18px;
     }
-    .card strong{display:block;margin-bottom:8px}
 
     .gallery{
       display:grid;
@@ -142,14 +134,11 @@
     .gallery img{
       width:100%;
       height:180px;
-      object-fit:cover;        /* ok for gallery thumbnails */
+      object-fit:cover;
       border-radius:14px;
       background:var(--panel);
       display:block;
     }
-
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
 
     @media (max-width: 900px){
       .sidebar{position:relative;width:100%;height:auto}
@@ -160,7 +149,6 @@
 </head>
 
 <body>
-
   <div class="sidebar">
     <h1><a href="../about.html">Daniel Ostalecki</a></h1>
     <p>Game Designer</p>
@@ -172,9 +160,7 @@
 
   <div class="content">
     <div class="hero">
-
       <div class="imagePanel">
-        <p class="label">Project visual</p>
         <div class="imageWrap">
           <img src="../assets/img/celestail.jpg" alt="Celestail screenshot">
         </div>
@@ -201,7 +187,6 @@
           Visit official page
         </a>
       </div>
-
     </div>
 
     <h2>My role</h2>
@@ -226,16 +211,9 @@
     </div>
 
     <h2>Gallery</h2>
-    <p style="opacity:.75;margin-top:0">
-      Add more screenshots by uploading images to <code>assets/img/</code> and duplicating the lines below.
-    </p>
     <div class="gallery">
       <img src="../assets/img/celestail.jpg" alt="Celestail gallery 1">
-      <!-- Example:
-      <img src="../assets/img/celestail_2.jpg" alt="Celestail gallery 2">
-      -->
     </div>
-
   </div>
 </body>
 </html>
