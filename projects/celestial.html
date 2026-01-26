@@ -38,12 +38,26 @@
       background:rgba(15,23,42,.45);
       border:1px solid rgba(56,189,248,.18);
       border-radius:18px;
-      padding:14px 14px 12px;
+      padding:14px;
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
-    .nameMini{font-size:1.15rem;margin:0}
-    .nameMini a{color:var(--text);text-decoration:none}
-    .roleMini{margin:6px 0 0 0;font-size:.9rem;color:var(--muted)}
+
+    /* spacing LOCKED (no <p>, so no random margins) */
+    .sidebarTop .nameMini{
+      margin:0;
+      padding:0;
+      line-height:1.2;
+      font-size:1.15rem;
+    }
+    .sidebarTop .nameMini a{color:var(--text);text-decoration:none}
+    .sidebarTop .roleMini{
+      margin-top:6px;
+      padding:0;
+      line-height:1.2;
+      font-size:.9rem;
+      color:var(--muted);
+    }
+
     .nav{
       margin-top:18px;
       display:flex;
@@ -67,16 +81,16 @@
     }
     .nav .dot{
       width:10px;height:10px;border-radius:999px;
-      background: rgba(229,231,235,.35);
+      background: rgba(229,231,235,.25);
       box-shadow:none;
     }
-    .nav a.active .dot{
-      background: rgba(56,189,248,.95);
-      box-shadow: 0 0 0 4px rgba(56,189,248,.18);
-    }
     .nav a.active{
-      border-color: rgba(56,189,248,.60);
-      background:rgba(56,189,248,.10);
+      border-color: rgba(56,189,248,.65);
+      background:rgba(56,189,248,.12);
+    }
+    .nav a.active .dot{
+      background: rgba(56,189,248,.98);
+      box-shadow:0 0 0 4px rgba(56,189,248,.18);
     }
 
     /* ===== Content ===== */
@@ -97,9 +111,11 @@
       align-items:start;
     }
 
+    /* Image: same style as Hungerless (hero, no label) */
     .imagePanel{padding:0;background:transparent;box-shadow:none}
     .imageWrap{
       width:100%;
+      height:420px;              /* consistent hero height */
       border-radius:18px;
       overflow:hidden;
       background:#000;
@@ -107,7 +123,9 @@
     }
     .imageWrap img{
       width:100%;
-      height:auto;
+      height:100%;
+      object-fit:cover;          /* strong portfolio look */
+      object-position:center;
       display:block;
     }
 
@@ -176,6 +194,7 @@
 
     @media (max-width: 980px){
       .hero{grid-template-columns:1fr}
+      .imageWrap{height:320px}
     }
     @media (max-width: 800px){
       .sidebar{position:relative;width:100%;height:auto}
@@ -187,8 +206,8 @@
 <body>
   <div class="sidebar">
     <div class="sidebarTop">
-      <p class="nameMini"><a href="../about.html">Daniel Ostalecki</a></p>
-      <p class="roleMini">Game Designer</p>
+      <div class="nameMini"><a href="../about.html">Daniel Ostalecki</a></div>
+      <div class="roleMini">Game Designer</div>
     </div>
 
     <nav class="nav">
@@ -200,28 +219,28 @@
 
   <div class="content">
     <div class="wrap">
+
       <div class="hero">
         <div class="imagePanel">
           <div class="imageWrap">
-            <!-- keep your same image file name -->
             <img src="../assets/img/celestial.jpg" alt="Celestial screenshot">
           </div>
         </div>
 
         <div class="info">
           <h1>Celestial</h1>
-          <p class="sub">Alter Learning — Puzzle / Adventure</p>
+          <p class="sub">Alter Learning — Educational game</p>
 
           <p>
-            Celestial is a creative adventure experience where players solve narrative-driven puzzles and explore mystic environments.
-            In my role, I focused on mechanics, puzzle interactions, and level progression to support the overall player experience.
+            I contributed to Celestial by focusing on gameplay mechanics and interaction flow, supporting a clear and engaging
+            learning experience through iteration and design documentation.
           </p>
 
           <div class="tags">
             <span class="tag">Game Design</span>
-            <span class="tag">Puzzle Systems</span>
-            <span class="tag">Level Progression</span>
-            <span class="tag">Player Flow</span>
+            <span class="tag">Interaction Flow</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">Documentation</span>
           </div>
 
           <a class="btn" href="https://alter-learning.com/games/celestial/" target="_blank" rel="noopener">
@@ -234,29 +253,32 @@
       <div class="grid">
         <div class="card">
           <strong>Game Designer</strong><br><br>
-          Led game systems design and puzzle interaction flow, working closely with the team to shape engaging player experiences.
+          Designed and iterated on mechanics and player flow, collaborating with the team to keep the experience clear, engaging and goal-driven.
         </div>
         <div class="card">
           <strong>Deliverables</strong><br><br>
-          Game design documentation, puzzle flow charts, and iterative prototypes for playtesting.
+          Design notes and documentation, interaction flow support, and iteration planning based on feedback/playtests.
         </div>
       </div>
 
       <h2>Key contributions</h2>
       <div class="card">
         <ul style="margin:0;padding-left:18px;line-height:1.7">
-          <li>Designed core puzzle mechanics and interactions.</li>
-          <li>Defined level progression logic to support narrative flow.</li>
-          <li>Created GDD and system documentation for team alignment.</li>
+          <li>Supported mechanics design and interaction clarity.</li>
+          <li>Helped define progression/flow to maintain learning pacing.</li>
+          <li>Created/maintained design documentation for team alignment.</li>
         </ul>
       </div>
 
       <h2>Gallery</h2>
       <div class="gallery">
         <img src="../assets/img/celestial.jpg" alt="Celestial gallery 1">
+        <!-- Add more:
+        <img src="../assets/img/celestial_2.jpg" alt="Celestial gallery 2">
+        -->
       </div>
+
     </div>
   </div>
 </body>
 </html>
-
