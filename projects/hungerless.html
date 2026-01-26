@@ -101,15 +101,21 @@
     .imagePanel{padding:0;background:transparent;box-shadow:none}
 .imageWrap{
   width:100%;
+  height:360px;                 /* <-- rende “hero” grande */
   border-radius:18px;
   overflow:hidden;
-  background:#000;
+  background: #000;             /* sfondo per eventuali bande */
   box-shadow: var(--shadow);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .imageWrap img{
   width:100%;
-  height:auto;          /* <-- CHIAVE */
+  height:100%;
+  object-fit: contain;          /* <-- NON taglia mai */
+  object-position:center;
   display:block;
 }
 
