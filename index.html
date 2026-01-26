@@ -2,106 +2,211 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Daniel Ostalecki — Game Designer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel Ostalecki — Game Designer</title>
+
   <style>
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0f19;color:#e5e7eb;display:flex}
-    .sidebar{width:220px;background:#020617;padding:30px 20px;position:fixed;height:100vh}
-    .sidebar h1{font-size:1.4rem;margin:0 0 5px 0}
-    .sidebar h1 a{color:#e5e7eb;text-decoration:none}
+    :root{
+      --bg:#0b0f19;
+      --panel:#020617;
+      --text:#e5e7eb;
+      --muted: rgba(229,231,235,.72);
+      --accent:#38bdf8;
+      --border: rgba(56,189,248,.85); /* più forte */
+      --shadow: 0 16px 50px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      display:flex;
+      min-height:100vh;
+    }
+
+    /* Sidebar */
+    .sidebar{
+      width:220px;
+      background:var(--panel);
+      padding:30px 20px;
+      position:fixed;
+      height:100vh;
+    }
+    .sidebar h1{font-size:1.4rem;margin:0 0 6px 0}
+    .sidebar h1 a{color:var(--text);text-decoration:none}
     .sidebar p{font-size:.9rem;opacity:.7;margin:0 0 40px 0}
-    .sidebar a.menu{display:block;margin-bottom:15px;color:#38bdf8;text-decoration:none;font-size:1rem}
-    .content{margin-left:260px;padding:70px 60px;width:100%;max-width:1100px}
-    h2{margin:44px 0 12px 0;color:#38bdf8}
-    p{line-height:1.65;font-size:1.05rem;margin:12px 0;opacity:.92}
-    .heroTitle{font-size:2.6rem;margin:0 0 6px 0}
-    .heroRole{opacity:.75;margin:0 0 14px 0}
-    .btn{display:inline-block;margin-top:16px;padding:10px 14px;border-radius:12px;background:#38bdf8;color:#020617;text-decoration:none;font-weight:700}
+    .sidebar a.menu{
+      display:block;
+      margin-bottom:14px;
+      color:var(--accent);
+      text-decoration:none;
+      font-size:1rem;
+    }
+
+    /* Content */
+    .content{
+      margin-left:260px;
+      width:100%;
+      padding:70px 30px;
+    }
+
+    /* Center wrapper */
+    .wrap{
+      max-width:1100px;
+      margin:0 auto; /* centra tutto */
+    }
+
+    /* Title box with visible border */
+    .titleBox{
+      display:inline-block;
+      background:linear-gradient(180deg, rgba(2,6,23,.98), rgba(2,6,23,.85));
+      border:2px solid var(--border);             /* bordo evidente */
+      border-radius:22px;
+      padding:22px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .name{
+      margin:0;
+      font-size:2.8rem;
+      letter-spacing:.2px;
+    }
+    .role{
+      margin:10px 0 0 0;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    .intro{
+      margin:18px 0 0 0;
+      max-width:760px;
+      line-height:1.65;
+      font-size:1.05rem;
+      color:rgba(229,231,235,.9);
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:16px;
+      padding:10px 14px;
+      border-radius:12px;
+      background:var(--accent);
+      color:#020617;
+      text-decoration:none;
+      font-weight:800;
+    }
     .btn:hover{opacity:.9}
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:18px}
-    .project-card{background:#020617;border-radius:14px;overflow:hidden;transition:transform .2s ease}
-    .project-card:hover{transform:translateY(-4px)}
-    .project-card img{width:100%;height:170px;object-fit:cover;display:block;background:#020617}
-    .project-card .t{padding:14px}
-    .project-card .t h3{margin:0;font-size:1.1rem}
-    .project-card .t div{margin-top:6px;font-size:.95rem;opacity:.7}
-    .project-card a{color:inherit;text-decoration:none;display:block}
-    @media (max-width:800px){
+
+    h2{
+      margin:44px 0 14px 0;
+      color:var(--accent);
+      font-size:1.3rem;
+    }
+
+    /* Featured projects centered and bigger */
+    .projects{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(360px, 1fr));
+      gap:26px;
+      justify-content:center;
+      align-items:stretch;
+    }
+
+    .card{
+      background:var(--panel);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      transition: transform .18s ease;
+    }
+    .card:hover{transform:translateY(-5px)}
+    .card img{
+      width:100%;
+      height:240px;         /* più grande */
+      object-fit:cover;
+      display:block;
+      background:var(--panel);
+    }
+    .card .t{
+      padding:16px 16px 18px 16px;
+    }
+    .card .t h3{
+      margin:0;
+      font-size:1.18rem;
+    }
+    .card .t .meta{
+      margin-top:7px;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+    .card a{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+    }
+
+    @media (max-width: 900px){
       .sidebar{position:relative;width:100%;height:auto}
-      .content{margin-left:0;padding:34px 22px}
-      .heroBox{
-  display:inline-block;
-  background:#020617;
-  border:1px solid rgba(56,189,248,.5);
-  border-radius:16px;
-  padding:18px 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
-}
-
-.centerWrap{
-  max-width:980px;
-  margin:0 auto;   /* centra tutto */
-}
-
-.projects.featured{
-  grid-template-columns: repeat(2, minmax(360px, 1fr));
-  justify-content: center;
-}
-
-.projects.featured .project-card img{
-  height:220px;   /* più grande */
-}
-@media (max-width:900px){
-  .projects.featured{grid-template-columns:1fr;}
-}
+      .content{margin-left:0;padding:34px 18px}
+      .projects{grid-template-columns:1fr}
+      .card img{height:210px}
+      .name{font-size:2.2rem}
     }
   </style>
 </head>
+
 <body>
 
   <div class="sidebar">
     <h1><a href="about.html">Daniel Ostalecki</a></h1>
     <p>Game Designer</p>
+
     <a class="menu" href="index.html">Home</a>
     <a class="menu" href="about.html">About</a>
     <a class="menu" href="projects.html">Projects</a>
   </div>
 
   <div class="content">
-    <h1 class="heroTitle">Daniel Franciszek Ostalecki</h1>
-    <p class="heroRole">Game Designer</p>
-    <p>
-      I design mechanics and gameplay systems with a strong focus on prototyping, iteration,
-      and balancing—always supporting player experience and narrative pacing.
-    </p>
+    <div class="wrap">
 
-    <a class="btn" href="projects.html">View all projects</a>
-
-    <h2>Featured projects</h2>
-    <div class="projects">
-
-      <div class="project-card">
-        <a href="projects/hungerless.html">
-          <img src="assets/img/hungerless.jpg" alt="Hungerless">
-          <div class="t">
-            <h3>Hungerless</h3>
-            <div>Bastet Paw</div>
-          </div>
-        </a>
+      <div class="titleBox">
+        <h1 class="name">Daniel Franciszek Ostalecki</h1>
+        <p class="role">Game Designer</p>
       </div>
 
-      <div class="project-card">
-        <a href="projects/celestail.html">
-          <img src="assets/img/celestail.jpg" alt="Celestail">
-          <div class="t">
-            <h3>Celestail</h3>
-            <div>Alter Learning</div>
-          </div>
-        </a>
-      </div>
+      <p class="intro">
+        I design mechanics and gameplay systems with a strong focus on prototyping, iteration, and balancing—
+        always supporting player experience and narrative pacing.
+      </p>
 
-      <!-- Se vuoi, qui puoi lasciare solo 2 progetti "featured"
-           e mettere il resto solo in projects.html -->
+      <a class="btn" href="projects.html">View all projects</a>
+
+      <h2>Featured projects</h2>
+
+      <div class="projects">
+        <div class="card">
+          <a href="projects/hungerless.html">
+            <img src="assets/img/hungerless.jpg" alt="Hungerless">
+            <div class="t">
+              <h3>Hungerless</h3>
+              <div class="meta">Bastet Paw</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="projects/celestail.html">
+            <img src="assets/img/celestail.jpg" alt="Celestail">
+            <div class="t">
+              <h3>Celestail</h3>
+              <div class="meta">Alter Learning</div>
+            </div>
+          </a>
+        </div>
+      </div>
 
     </div>
   </div>
