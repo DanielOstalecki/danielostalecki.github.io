@@ -17,132 +17,64 @@
       --radius:18px;
     }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      display:flex;
-      min-height:100vh;
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh}
+
+    /* ===== Sidebar (SAME ON ALL PAGES) ===== */
+    .sidebar{
+      width:240px;
+      background:linear-gradient(180deg, rgba(2,6,23,1), rgba(2,6,23,.92));
+      padding:26px 18px;
+      position:fixed;
+      height:100vh;
+      border-right:1px solid rgba(56,189,248,.14);
     }
-
-    /* ===== Sidebar (shared) ===== */
-  .sidebarTop{
-  padding:14px;
-}
-
-.sidebarTop .nameMini{
-  margin:0;
-  padding:0;
-  line-height:1.2;
-}
-
-.sidebarTop .roleMini{
-  margin-top:6px;
-  padding:0;
-  line-height:1.2;
-  font-size:.9rem;
-  color:var(--muted);
-}
-
-    .nav{
-      margin-top:18px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+    .sidebarTop{
+      background:rgba(15,23,42,.45);
+      border:1px solid rgba(56,189,248,.18);
+      border-radius:18px;
+      padding:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
     }
+    .sidebarTop .nameMini{margin:0;line-height:1.2;font-size:1.15rem}
+    .sidebarTop .nameMini a{color:var(--text);text-decoration:none}
+    .sidebarTop .roleMini{margin-top:6px;line-height:1.2;font-size:.9rem;color:var(--muted)}
+    .nav{margin-top:18px;display:flex;flex-direction:column;gap:10px}
     .nav a{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 12px;
-      border-radius:14px;
-      color:var(--text);
-      text-decoration:none;
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:14px;
+      color:var(--text);text-decoration:none;
       background:rgba(15,23,42,.22);
       border:1px solid rgba(56,189,248,.10);
     }
-    .nav a:hover{
-      border-color: rgba(56,189,248,.35);
-      background:rgba(15,23,42,.40);
-    }
-    .dot{
-      width:10px;height:10px;border-radius:999px;
-      background: rgba(229,231,235,.25);
-      box-shadow:none;
-    }
-    .nav a.active{
-      border-color: rgba(56,189,248,.65);
-      background:rgba(56,189,248,.12);
-    }
-    .nav a.active .dot{
-      background: rgba(56,189,248,.98);
-      box-shadow:0 0 0 4px rgba(56,189,248,.18);
-    }
+    .nav a:hover{border-color:rgba(56,189,248,.35);background:rgba(15,23,42,.40)}
+    .dot{width:10px;height:10px;border-radius:999px;background:rgba(229,231,235,.25)}
+    .nav a.active{border-color:rgba(56,189,248,.65);background:rgba(56,189,248,.12)}
+    .nav a.active .dot{background:rgba(56,189,248,.98);box-shadow:0 0 0 4px rgba(56,189,248,.18)}
 
-    /* ===== Content ===== */
-    .content{
-      margin-left:280px;
-      width:100%;
-      padding:60px 30px 80px;
-    }
+    /* Content */
+    .content{margin-left:280px;width:100%;padding:60px 30px 80px}
     .wrap{max-width:1200px;margin:0 auto}
 
-    .hero{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-      gap:14px;
-      margin-top:6px;
-    }
+    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
     .titleBox{
-      width:min(980px, 100%);
+      width:min(980px,100%);
       background:linear-gradient(180deg, rgba(2,6,23,.98), rgba(2,6,23,.85));
       border:3px solid var(--border);
       border-radius:22px;
       padding:22px 24px;
-      box-shadow: var(--shadow);
+      box-shadow:var(--shadow);
     }
-    .name{
-      margin:0;
-      font-size:3rem;
-      line-height:1.1;
-    }
-    .role{
-      margin:10px 0 0 0;
-      color:var(--muted);
-      font-size:1.05rem;
-    }
-    .intro{
-      margin:0;
-      max-width:900px;
-      line-height:1.65;
-      font-size:1.05rem;
-      color:rgba(229,231,235,.9);
-    }
-    .btn{
-      display:inline-block;
-      padding:11px 16px;
-      border-radius:12px;
-      background:var(--accent);
-      color:#020617;
-      text-decoration:none;
-      font-weight:900;
-    }
+    .name{margin:0;font-size:3rem;line-height:1.1}
+    .role{margin:10px 0 0 0;color:var(--muted);font-size:1.05rem}
+    .intro{margin:0;max-width:900px;line-height:1.65;color:rgba(229,231,235,.9)}
+    .btn{display:inline-block;padding:11px 16px;border-radius:12px;background:var(--accent);color:#020617;text-decoration:none;font-weight:900}
     .btn:hover{opacity:.9}
 
-    h2{
-      margin:42px 0 14px 0;
-      color:var(--accent);
-      font-size:1.35rem;
-      text-align:center;
-    }
+    h2{margin:42px 0 14px 0;color:var(--accent);font-size:1.35rem;text-align:center}
 
-    /* Featured cards */
     .projects{
       display:grid;
-      grid-template-columns: repeat(2, minmax(420px, 1fr));
+      grid-template-columns:repeat(2, minmax(420px,1fr));
       gap:30px;
       justify-content:center;
       align-items:stretch;
@@ -150,70 +82,44 @@
     }
     .card{
       background:var(--panel);
-      border-radius: var(--radius);
+      border-radius:var(--radius);
       overflow:hidden;
-      box-shadow: var(--shadow);
-      transition: transform .18s ease;
+      box-shadow:var(--shadow);
+      transition:transform .18s ease;
     }
     .card:hover{transform:translateY(-6px)}
-    .card img{
-      width:100%;
-      height:300px;
-      object-fit:cover;
-      display:block;
-      background:var(--panel);
-    }
-
-    /* ✅ Special crop ONLY for Celestial to hide the blue strip */
-    .card img.celestialCrop{
-      object-position:center 8%;
-    }
-
-    .t{
-      padding:16px 16px 18px 16px;
-      text-align:left;
-    }
+    .card img{width:100%;height:300px;object-fit:cover;display:block;background:var(--panel)}
+    .t{padding:16px 16px 18px;text-align:left}
     .t h3{margin:0;font-size:1.22rem}
-    .t .meta{margin-top:7px;color:var(--muted);font-size:1rem}
+    .meta{margin-top:7px;color:var(--muted);font-size:1rem}
     .card a{display:block;text-decoration:none;color:inherit}
 
-    /* Contact block with photo */
     .contactSection{margin-top:54px;display:flex;justify-content:center}
     .contactCard{
-      width:min(980px, 100%);
+      width:min(980px,100%);
       background:var(--panel);
       border-radius:22px;
-      box-shadow: var(--shadow);
+      box-shadow:var(--shadow);
       padding:22px;
       display:flex;
       gap:18px;
       align-items:center;
       flex-wrap:wrap;
     }
-    .avatar{
-      width:92px;height:92px;
-      border-radius:18px;
-      overflow:hidden;
-      background:#000;
-      flex:0 0 auto;
-    }
+    .avatar{width:92px;height:92px;border-radius:18px;overflow:hidden;background:#000;flex:0 0 auto}
     .avatar img{width:100%;height:100%;object-fit:cover;display:block}
     .contactText{flex:1;min-width:240px}
     .contactText h3{margin:0 0 8px 0}
-    .contactLinks{
-      margin-top:6px;
-      line-height:1.8;
-      color:rgba(229,231,235,.9);
-    }
+    .contactLinks{line-height:1.8;color:rgba(229,231,235,.9)}
     .contactLinks a{color:var(--accent);text-decoration:none}
     .contactLinks a:hover{text-decoration:underline}
 
-    @media (max-width: 1000px){
+    @media (max-width:1000px){
       .projects{grid-template-columns:1fr}
       .card img{height:260px}
       .name{font-size:2.4rem}
     }
-    @media (max-width: 800px){
+    @media (max-width:800px){
       .sidebar{position:relative;width:100%;height:auto}
       .content{margin-left:0;padding:34px 18px 60px}
     }
@@ -223,8 +129,8 @@
 <body>
   <div class="sidebar">
     <div class="sidebarTop">
-      <p class="nameMini"><a href="about.html">Daniel Ostalecki</a></p>
-      <p class="roleMini">Game Designer</p>
+      <div class="nameMini"><a href="about.html">Daniel Ostalecki</a></div>
+      <div class="roleMini">Game Designer</div>
     </div>
 
     <nav class="nav">
@@ -236,7 +142,6 @@
 
   <div class="content">
     <div class="wrap">
-
       <div class="hero">
         <div class="titleBox">
           <h1 class="name">Daniel Franciszek Ostalecki</h1>
@@ -266,7 +171,7 @@
 
         <div class="card">
           <a href="projects/celestial.html">
-            <img class="celestialCrop" src="assets/img/celestial.jpg" alt="Celestial">
+            <img src="assets/img/celestial.jpg" alt="Celestial">
             <div class="t">
               <h3>Celestial</h3>
               <div class="meta">Alter Learning</div>
@@ -280,7 +185,6 @@
           <div class="avatar">
             <img src="assets/img/profile.jpg" alt="Daniel Ostalecki">
           </div>
-
           <div class="contactText">
             <h3>Contact</h3>
             <div class="contactLinks">
@@ -296,4 +200,5 @@
   </div>
 </body>
 </html>
+
 
