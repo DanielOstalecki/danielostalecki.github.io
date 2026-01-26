@@ -1,140 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Daniel Ostalecki — Game Designer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0f19;
-      color: #e5e7eb;
-      display: flex;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      width: 220px;
-      background: #020617;
-      padding: 30px 20px;
-      position: fixed;
-      height: 100vh;
-    }
-
-    .sidebar h1 {
-      font-size: 1.4rem;
-      margin-bottom: 5px;
-      cursor: pointer;
-    }
-
-    .sidebar h1 a {
-      color: #e5e7eb;
-      text-decoration: none;
-    }
-
-    .sidebar p {
-      font-size: 0.9rem;
-      opacity: 0.7;
-      margin-bottom: 40px;
-    }
-
-    .sidebar a.menu {
-      display: block;
-      margin-bottom: 15px;
-      color: #38bdf8;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-    /* Main */
-    .content {
-      margin-left: 260px;
-      padding: 60px;
-      width: 100%;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .project-card {
-      background: #020617;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.2s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .project-card h3 {
-      padding: 15px;
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    .project-card a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    @media (max-width: 800px) {
-      .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-      }
-
-      .content {
-        margin-left: 0;
-        padding: 30px;
-      }
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0f19;color:#e5e7eb;display:flex}
+    .sidebar{width:220px;background:#020617;padding:30px 20px;position:fixed;height:100vh}
+    .sidebar h1{font-size:1.4rem;margin:0 0 5px 0}
+    .sidebar h1 a{color:#e5e7eb;text-decoration:none}
+    .sidebar p{font-size:.9rem;opacity:.7;margin:0 0 40px 0}
+    .sidebar a.menu{display:block;margin-bottom:15px;color:#38bdf8;text-decoration:none;font-size:1rem}
+    .content{margin-left:260px;padding:70px 60px;width:100%;max-width:1100px}
+    h2{margin:44px 0 12px 0;color:#38bdf8}
+    p{line-height:1.65;font-size:1.05rem;margin:12px 0;opacity:.92}
+    .heroTitle{font-size:2.6rem;margin:0 0 6px 0}
+    .heroRole{opacity:.75;margin:0 0 14px 0}
+    .btn{display:inline-block;margin-top:16px;padding:10px 14px;border-radius:12px;background:#38bdf8;color:#020617;text-decoration:none;font-weight:700}
+    .btn:hover{opacity:.9}
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:18px}
+    .project-card{background:#020617;border-radius:14px;overflow:hidden;transition:transform .2s ease}
+    .project-card:hover{transform:translateY(-4px)}
+    .project-card img{width:100%;height:170px;object-fit:cover;display:block;background:#020617}
+    .project-card .t{padding:14px}
+    .project-card .t h3{margin:0;font-size:1.1rem}
+    .project-card .t div{margin-top:6px;font-size:.95rem;opacity:.7}
+    .project-card a{color:inherit;text-decoration:none;display:block}
+    @media (max-width:800px){
+      .sidebar{position:relative;width:100%;height:auto}
+      .content{margin-left:0;padding:34px 22px}
     }
   </style>
 </head>
-
 <body>
 
-  <!-- Sidebar -->
   <div class="sidebar">
     <h1><a href="about.html">Daniel Ostalecki</a></h1>
     <p>Game Designer</p>
-
     <a class="menu" href="index.html">Home</a>
     <a class="menu" href="about.html">About</a>
     <a class="menu" href="projects.html">Projects</a>
   </div>
 
-  <!-- Content -->
   <div class="content">
+    <h1 class="heroTitle">Daniel Franciszek Ostalecki</h1>
+    <p class="heroRole">Game Designer</p>
+    <p>
+      I design mechanics and gameplay systems with a strong focus on prototyping, iteration,
+      and balancing—always supporting player experience and narrative pacing.
+    </p>
+
+    <a class="btn" href="projects.html">View all projects</a>
+
+    <h2>Featured projects</h2>
     <div class="projects">
 
-      <a href="projects/hungerless.html" class="project-card">
-        <img src="assets/img/hungerless.jpg" alt="Hungerless">
-        <h3>Hungerless</h3>
-      </a>
+      <div class="project-card">
+        <a href="projects/hungerless.html">
+          <img src="assets/img/hungerless.jpg" alt="Hungerless">
+          <div class="t">
+            <h3>Hungerless</h3>
+            <div>Bastet Paw</div>
+          </div>
+        </a>
+      </div>
 
-      <a href="projects/alter-learning.html" class="project-card">
-        <img src="assets/img/alter-learning.jpg" alt="Alter Learning">
-        <h3>Alter Learning</h3>
-      </a>
+      <div class="project-card">
+        <a href="projects/celestail.html">
+          <img src="assets/img/celestail.jpg" alt="Celestail">
+          <div class="t">
+            <h3>Celestail</h3>
+            <div>Alter Learning</div>
+          </div>
+        </a>
+      </div>
 
-      <a href="projects/hunter-hunted.html" class="project-card">
-        <img src="assets/img/hunter-hunted.jpg" alt="Hunter Hunted">
-        <h3>Hunter Hunted</h3>
-      </a>
+      <!-- Se vuoi, qui puoi lasciare solo 2 progetti "featured"
+           e mettere il resto solo in projects.html -->
 
     </div>
   </div>
