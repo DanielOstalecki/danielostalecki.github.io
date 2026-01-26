@@ -27,23 +27,86 @@
     }
 
     /* Sidebar */
-    .sidebar{
-      width:220px;
-      background:var(--panel);
-      padding:30px 20px;
-      position:fixed;
-      height:100vh;
-    }
-    .sidebar h1{font-size:1.4rem;margin:0 0 6px 0}
-    .sidebar h1 a{color:var(--text);text-decoration:none}
-    .sidebar p{font-size:.9rem;opacity:.7;margin:0 0 40px 0}
-    .sidebar a.menu{
-      display:block;
-      margin-bottom:14px;
-      color:var(--accent);
-      text-decoration:none;
-      font-size:1rem;
-    }
+   /* Sidebar - upgraded */
+.sidebar{
+  width:240px;
+  background:linear-gradient(180deg, rgba(2,6,23,1), rgba(2,6,23,.92));
+  padding:26px 18px;
+  position:fixed;
+  height:100vh;
+  border-right:1px solid rgba(56,189,248,.14);
+}
+
+.sidebarTop{
+  background:rgba(15,23,42,.45);
+  border:1px solid rgba(56,189,248,.18);
+  border-radius:18px;
+  padding:14px 14px 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+.sidebar .nameMini{
+  font-size:1.15rem;
+  margin:0;
+}
+.sidebar .nameMini a{
+  color:var(--text);
+  text-decoration:none;
+}
+.sidebar .roleMini{
+  margin:6px 0 0 0;
+  font-size:.9rem;
+  color:var(--muted);
+}
+
+.nav{
+  margin-top:18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.nav a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:14px;
+  color:var(--text);
+  text-decoration:none;
+  background:rgba(15,23,42,.25);
+  border:1px solid rgba(56,189,248,.10);
+}
+
+.nav a:hover{
+  border-color: rgba(56,189,248,.35);
+  background:rgba(15,23,42,.45);
+}
+
+.nav a.active{
+  border-color: rgba(56,189,248,.65);
+  background:rgba(56,189,248,.12);
+}
+
+.nav .dot{
+  width:8px;height:8px;border-radius:99px;
+  background:rgba(56,189,248,.9);
+  box-shadow:0 0 0 4px rgba(56,189,248,.15);
+}
+
+.sidebarFooter{
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  padding-top:12px;
+  border-top:1px solid rgba(56,189,248,.14);
+  color:var(--muted);
+  font-size:.9rem;
+}
+.sidebarFooter a{color:var(--accent);text-decoration:none}
+.sidebarFooter a:hover{text-decoration:underline}
+
 
     /* Content */
     .content{
@@ -203,14 +266,23 @@
 
 <body>
 
-  <div class="sidebar">
-    <h1><a href="about.html">Daniel Ostalecki</a></h1>
-    <p>Game Designer</p>
-
-    <a class="menu" href="index.html">Home</a>
-    <a class="menu" href="about.html">About</a>
-    <a class="menu" href="projects.html">Projects</a>
+ <div class="sidebar">
+  <div class="sidebarTop">
+    <p class="nameMini"><a href="about.html">Daniel Ostalecki</a></p>
+    <p class="roleMini">Game Designer</p>
   </div>
+
+  <nav class="nav">
+    <a class="active" href="index.html"><span class="dot"></span>Home</a>
+    <a href="projects.html"><span class="dot"></span>Projects</a>
+    <a href="about.html"><span class="dot"></span>About</a>
+  </nav>
+
+  <div class="sidebarFooter">
+    <div><a href="mailto:d.ostalecki@gmail.com">d.ostalecki@gmail.com</a></div>
+    <div><a href="https://www.artstation.com/danielostalecki" target="_blank" rel="noopener">ArtStation</a></div>
+  </div>
+</div>
 
   <div class="content">
     <div class="wrap">
