@@ -2,56 +2,165 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Celestail — Alter Learning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Celestail — Alter Learning</title>
 
   <style>
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0f19;color:#e5e7eb;display:flex}
-    .sidebar{width:220px;background:#020617;padding:30px 20px;position:fixed;height:100vh}
-    .sidebar h1{font-size:1.4rem;margin:0 0 5px 0}
-    .sidebar h1 a{color:#e5e7eb;text-decoration:none}
-    .sidebar p{font-size:.9rem;opacity:.7;margin:0 0 40px 0}
-    .sidebar a.menu{display:block;margin-bottom:15px;color:#38bdf8;text-decoration:none;font-size:1rem}
-    .content{margin-left:260px;padding:60px;width:100%;max-width:1100px}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:start}
-    .heroimg{border-radius:16px;overflow:hidden;background:#020617}
-.heroimg{
-  background:#020617;
-  border-radius:16px;
-  padding:14px;
-}
+    :root{
+      --bg:#0b0f19;
+      --panel:#020617;
+      --text:#e5e7eb;
+      --muted: rgba(229,231,235,.72);
+      --accent:#38bdf8;
+      --border: rgba(56,189,248,.55);
+      --shadow: 0 14px 40px rgba(0,0,0,.40);
+      --radius:16px;
+    }
 
-.heroimg img{
-  width:100%;
-  height:auto;
-  max-height:300px;
-  object-fit:contain;
-  display:block;
-  margin:0 auto;
-}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      display:flex;
+      min-height:100vh;
+    }
+
+    /* Sidebar */
+    .sidebar{
+      width:220px;
+      background:var(--panel);
+      padding:30px 20px;
+      position:fixed;
+      height:100vh;
+    }
+    .sidebar h1{font-size:1.4rem;margin:0 0 6px 0}
+    .sidebar h1 a{color:var(--text);text-decoration:none}
+    .sidebar p{font-size:.9rem;opacity:.7;margin:0 0 40px 0}
+    .sidebar a.menu{
+      display:block;
+      margin-bottom:14px;
+      color:var(--accent);
+      text-decoration:none;
+      font-size:1rem;
+    }
+
+    /* Content */
+    .content{
+      margin-left:260px;
+      padding:60px;
+      width:100%;
+      max-width:1150px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:26px;
+      align-items:start;
+    }
+
+    /* Image panel - NO CROP */
+    .imagePanel{
+      background:var(--panel);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .imagePanel .label{
+      margin:0 0 10px 0;
+      font-size:1rem;
+      opacity:.75;
+    }
+    .imageWrap{
+      width:100%;
+      border-radius:14px;
+      overflow:hidden;
+      background:#000;
+    }
+    .imageWrap img{
+      width:100%;
+      height:auto;              /* keeps full image */
+      display:block;
+    }
+
+    .info{
+      background:var(--panel);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
     h1{margin:0 0 6px 0;font-size:2.2rem}
-    .sub{opacity:.75;margin:0 0 18px 0}
-    p{line-height:1.65;font-size:1.05rem;margin:10px 0}
-    h2{margin:34px 0 10px 0;color:#38bdf8}
-    .card{background:#020617;border-radius:14px;padding:18px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:14px}
-    .tag{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;background:#0f172a;font-size:.9rem;opacity:.95}
-    .btn{display:inline-block;margin-top:14px;padding:10px 14px;border-radius:12px;background:#38bdf8;color:#020617;text-decoration:none;font-weight:700}
+    .sub{margin:0 0 14px 0;opacity:.75}
+    p{line-height:1.65;font-size:1.05rem;margin:10px 0;color:rgba(229,231,235,.9)}
+
+    .tags{margin-top:10px}
+    .tag{
+      display:inline-block;
+      margin:6px 6px 0 0;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#0f172a;
+      font-size:.9rem;
+      opacity:.95;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:14px;
+      padding:10px 14px;
+      border-radius:12px;
+      background:var(--accent);
+      color:#020617;
+      text-decoration:none;
+      font-weight:800;
+    }
     .btn:hover{opacity:.9}
-    a{color:#38bdf8;text-decoration:none}
+
+    h2{margin:34px 0 10px 0;color:var(--accent)}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:18px;
+      margin-top:14px;
+    }
+    .card{
+      background:var(--panel);
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .card strong{display:block;margin-bottom:8px}
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:14px;
+      margin-top:12px;
+    }
+    .gallery img{
+      width:100%;
+      height:180px;
+      object-fit:cover;        /* ok for gallery thumbnails */
+      border-radius:14px;
+      background:var(--panel);
+      display:block;
+    }
+
+    a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
-    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:14px;background:#020617}
-    @media (max-width:900px){
+
+    @media (max-width: 900px){
       .sidebar{position:relative;width:100%;height:auto}
       .content{margin-left:0;padding:30px}
-      .hero{grid-template-columns:1fr}
+      .hero{grid-template-columns: 1fr}
     }
   </style>
 </head>
 
 <body>
-  <!-- Sidebar -->
+
   <div class="sidebar">
     <h1><a href="../about.html">Daniel Ostalecki</a></h1>
     <p>Game Designer</p>
@@ -61,24 +170,27 @@
     <a class="menu" href="../projects.html">Projects</a>
   </div>
 
-  <!-- Content -->
   <div class="content">
     <div class="hero">
-      <div class="heroimg">
-        <img src="../assets/img/celestail.jpg" alt="Celestail key art">
+
+      <div class="imagePanel">
+        <p class="label">Project visual</p>
+        <div class="imageWrap">
+          <img src="../assets/img/celestail.jpg" alt="Celestail screenshot">
+        </div>
       </div>
 
-      <div class="card">
+      <div class="info">
         <h1>Celestail</h1>
         <p class="sub">Alter Learning — Puzzle / Adventure</p>
 
         <p>
-          Celestail is a creative adventure game where players solve narrative-driven puzzles and explore
-          mystic environments. In my role, I focused on mechanics, puzzle interactions and level progression
-          to support the creative narrative experience.
+          Celestail is a creative adventure game where players solve narrative-driven puzzles and explore mystic
+          environments. In my role, I focused on mechanics, puzzle interactions and level progression to support
+          the overall player experience.
         </p>
 
-        <div>
+        <div class="tags">
           <span class="tag">Game Design</span>
           <span class="tag">Puzzle Systems</span>
           <span class="tag">Level Progression</span>
@@ -89,40 +201,39 @@
           Visit official page
         </a>
       </div>
+
     </div>
 
     <h2>My role</h2>
     <div class="grid">
       <div class="card">
         <strong>Game Designer</strong>
-        <p>
-          Led game systems design and puzzle interaction flow, working closely with the team to
-          shape engaging player experiences.
-        </p>
+        Led game systems design and puzzle interaction flow, working closely with the team to shape engaging player experiences.
       </div>
       <div class="card">
         <strong>Deliverables</strong>
-        <p>
-          Game design documentation, puzzle flow charts, and iterative prototypes for playtesting.
-        </p>
+        Game design documentation, puzzle flow charts, and iterative prototypes for playtesting.
       </div>
     </div>
 
     <h2>Key contributions</h2>
     <div class="card">
       <ul style="margin:0;padding-left:18px;line-height:1.7">
-        <li>Designed the core puzzle mechanics and interactions.</li>
+        <li>Designed core puzzle mechanics and interactions.</li>
         <li>Defined level progression logic to support narrative flow.</li>
         <li>Created GDD and system documentation for team alignment.</li>
       </ul>
     </div>
 
     <h2>Gallery</h2>
-    <p style="opacity:.75">Add more screenshots anytime by uploading images to <code>assets/img/</code> and duplicating items below.</p>
-
+    <p style="opacity:.75;margin-top:0">
+      Add more screenshots by uploading images to <code>assets/img/</code> and duplicating the lines below.
+    </p>
     <div class="gallery">
-      <img src="../assets/img/celestail.jpg" alt="Celestail screenshot 1">
-      <!-- Add more images if available -->
+      <img src="../assets/img/celestail.jpg" alt="Celestail gallery 1">
+      <!-- Example:
+      <img src="../assets/img/celestail_2.jpg" alt="Celestail gallery 2">
+      -->
     </div>
 
   </div>
