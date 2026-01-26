@@ -99,23 +99,17 @@
 
     /* Image area: clean, no label, no “card border look” */
     .imagePanel{padding:0;background:transparent;box-shadow:none}
-   .imageWrap{
+.imageWrap{
   width:100%;
   border-radius:18px;
   overflow:hidden;
   background:#000;
   box-shadow: var(--shadow);
-  min-height: 340px;     /* forza una hero più alta */
-  display:flex;
-  align-items:center;
-  justify-content:center;
 }
 
 .imageWrap img{
   width:100%;
-  height:340px;          /* la rende grande */
-  object-fit:cover;      /* riempie bene (può croppare un po’) */
-  object-position:center;
+  height:auto;          /* <-- CHIAVE */
   display:block;
 }
 
