@@ -1,74 +1,143 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Danilo Ostalecki</title>
+  <title>Daniel Ostalecki — Game Designer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
       margin: 0;
-      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0f19;
+      color: #e5e7eb;
+      display: flex;
     }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 60px 20px;
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #020617;
+      padding: 30px 20px;
+      position: fixed;
+      height: 100vh;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+
+    .sidebar h1 {
+      font-size: 1.4rem;
+      margin-bottom: 5px;
+      cursor: pointer;
     }
-    h2 {
-      color: #38bdf8;
-      margin-top: 40px;
-    }
-    p {
-      line-height: 1.6;
-      font-size: 1.05rem;
-    }
-    a {
-      color: #38bdf8;
+
+    .sidebar h1 a {
+      color: #e5e7eb;
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
-    }
-    .footer {
-      margin-top: 60px;
+
+    .sidebar p {
       font-size: 0.9rem;
       opacity: 0.7;
+      margin-bottom: 40px;
+    }
+
+    .sidebar a.menu {
+      display: block;
+      margin-bottom: 15px;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    /* Main */
+    .content {
+      margin-left: 260px;
+      padding: 60px;
+      width: 100%;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      background: #020617;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-card h3 {
+      padding: 15px;
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media (max-width: 800px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+
+      .content {
+        margin-left: 0;
+        padding: 30px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Danilo Ostalecki</h1>
-    <p><strong>Profilo personale</strong></p>
 
-    <p>
-      Ciao! Sono Danilo. Questo è il mio sito personale creato con GitHub Pages.
-      Qui puoi trovare informazioni su di me, i miei interessi e i miei contatti.
-    </p>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h1><a href="about.html">Daniel Ostalecki</a></h1>
+    <p>Game Designer</p>
 
-    <h2>Su di me</h2>
-    <p>
-      Scrivi qui una breve descrizione di te: cosa fai, cosa studi o che lavoro fai,
-      cosa ti appassiona.
-    </p>
+    <a class="menu" href="index.html">Home</a>
+    <a class="menu" href="about.html">About</a>
+    <a class="menu" href="projects.html">Projects</a>
+  </div>
 
-    <h2>Contatti</h2>
-    <p>
-      📧 Email: <a href="mailto:tuamail@email.com">tuamail@email.com</a><br>
-      💼 LinkedIn: <a href="https://linkedin.com" target="_blank">Il tuo LinkedIn</a><br>
-      💻 GitHub: <a href="https://github.com/danielostalecki" target="_blank">github.com/danielostalecki</a>
-    </p>
+  <!-- Content -->
+  <div class="content">
+    <div class="projects">
 
-    <div class="footer">
-      © 2026 – Danilo Ostalecki
+      <a href="projects/hungerless.html" class="project-card">
+        <img src="assets/img/hungerless.jpg" alt="Hungerless">
+        <h3>Hungerless</h3>
+      </a>
+
+      <a href="projects/alter-learning.html" class="project-card">
+        <img src="assets/img/alter-learning.jpg" alt="Alter Learning">
+        <h3>Alter Learning</h3>
+      </a>
+
+      <a href="projects/hunter-hunted.html" class="project-card">
+        <img src="assets/img/hunter-hunted.jpg" alt="Hunter Hunted">
+        <h3>Hunter Hunted</h3>
+      </a>
+
     </div>
   </div>
+
 </body>
 </html>
