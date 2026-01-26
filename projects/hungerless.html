@@ -101,20 +101,17 @@
     .imagePanel{padding:0;background:transparent;box-shadow:none}
 .imageWrap{
   width:100%;
-  height:360px;                 /* <-- rende “hero” grande */
+  height:420px;              /* <-- stesso “peso” di Celestial */
   border-radius:18px;
   overflow:hidden;
-  background: #000;             /* sfondo per eventuali bande */
+  background:#000;
   box-shadow: var(--shadow);
-  display:flex;
-  align-items:center;
-  justify-content:center;
 }
 
 .imageWrap img{
   width:100%;
   height:100%;
-  object-fit: contain;          /* <-- NON taglia mai */
+  object-fit:cover;          /* <-- COME CELESTIAL */
   object-position:center;
   display:block;
 }
