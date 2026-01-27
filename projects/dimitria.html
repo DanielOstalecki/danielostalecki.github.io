@@ -18,7 +18,7 @@
     *{box-sizing:border-box}
     body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh}
 
-    /* Sidebar (same style as your other pages) */
+    /* Sidebar (same style as your site) */
     .sidebar{width:240px;background:linear-gradient(180deg, rgba(2,6,23,1), rgba(2,6,23,.92));padding:26px 18px;position:fixed;height:100vh;border-right:1px solid rgba(56,189,248,.14)}
     .sidebarTop{background:rgba(15,23,42,.45);border:1px solid rgba(56,189,248,.18);border-radius:18px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
     .sidebarTop .nameMini{margin:0;line-height:1.2;font-size:1.15rem}
@@ -33,8 +33,15 @@
 
     /* Content */
     .content{margin-left:280px;width:100%;padding:50px 30px 80px}
-    .wrap{max-width:1000px;margin:0 auto}
+    .wrap{max-width:1100px;margin:0 auto}
 
+    /* Hero (text left, trailer right) */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      align-items:start;
+    }
     .titleRow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
     h1{margin:0;font-size:2.2rem}
     .status{
@@ -51,12 +58,13 @@
     .submeta{margin-top:10px;color:var(--muted);line-height:1.6}
     .lead{margin:12px 0;line-height:1.7;color:rgba(229,231,235,.92)}
 
+    /* Cards / sections */
     h2{margin:34px 0 12px 0;color:var(--accent)}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:12px}
     .card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
     .tag{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;background:#0f172a;font-size:.9rem;opacity:.95}
 
-    /* Video */
+    /* Trailer */
     .videoWrap{
       background:var(--panel);
       border-radius:var(--radius);
@@ -74,6 +82,7 @@
       width:100%; height:100%;
       border:0;
     }
+    .videoCaption{margin-top:10px;color:var(--muted);font-size:.95rem;line-height:1.6}
 
     /* Gallery */
     .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
@@ -88,6 +97,9 @@
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
 
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr}
+    }
     @media (max-width:800px){
       .sidebar{position:relative;width:100%;height:auto}
       .content{margin-left:0;padding:30px 18px 60px}
@@ -112,20 +124,41 @@
   <div class="content">
     <div class="wrap">
 
-      <div class="titleRow">
-        <h1>Dimitria</h1>
-        <span class="status">Prototype</span>
-      </div>
+      <!-- TOP: Title + Description (left) / Trailer (right) -->
+      <div class="hero">
+        <div>
+          <div class="titleRow">
+            <h1>Dimitria</h1>
+            <span class="status">Prototype</span>
+          </div>
 
-      <div class="submeta">
-        <div>University Team Project (Capstone)</div>
-        <div>Local Co-op · Unreal Engine · ~30 minutes playable prototype · Trailer (2:10)</div>
-      </div>
+          <div class="submeta">
+            <div>University Team Project (Capstone)</div>
+            <div>Local Co-op · Unreal Engine · ~30 minutes playable prototype</div>
+          </div>
 
-      <p class="lead">
-        Dimitria is a local cooperative prototype developed as the final university project of our Game Design program.
-        Two videogame-loving boys are transported into a fantasy world, and only by cooperating they can uncover why they ended up there.
-      </p>
+          <p class="lead">
+            Dimitria is a local co-op prototype developed as the final university project of our Game Design program.
+            The story follows two videogame-loving boys transported into a fantasy world—only through cooperation can they uncover why they ended up there.
+          </p>
+        </div>
+
+        <div>
+          <div class="videoWrap">
+            <div class="video">
+              <iframe
+                src="https://www.youtube.com/embed/78wH_1D7o_I"
+                title="Dimitria Trailer"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <div class="videoCaption">
+            Trailer (2:10) · YouTube
+          </div>
+        </div>
+      </div>
 
       <h2>Quick facts</h2>
       <div class="grid">
@@ -142,13 +175,13 @@
         </div>
 
         <div class="card">
-          <strong>Duration</strong><br>
-          <span class="tag">~30 min prototype</span>
+          <strong>Scope</strong><br>
+          <span class="tag">~30 min playable prototype</span>
         </div>
 
         <div class="card">
           <strong>Media</strong><br>
-          <span class="tag">YouTube trailer</span>
+          <span class="tag">Trailer</span>
           <span class="tag">Screenshots</span>
         </div>
       </div>
@@ -157,7 +190,7 @@
       <div class="card">
         <strong>Game Designer · Narrative Designer · Programmer</strong>
         <p class="lead" style="margin-bottom:0;">
-          I worked on gameplay and narrative design, and implemented parts of the prototype in Unreal Engine.
+          I contributed to gameplay and narrative design, and implemented parts of the prototype in Unreal Engine to validate mechanics and interaction flow.
         </p>
       </div>
 
@@ -173,31 +206,15 @@
       <div class="card">
         <ul style="margin:0; padding-left:18px; line-height:1.8; color:rgba(229,231,235,.92);">
           <li>Designed cooperative mechanics that require coordination between the two players.</li>
-          <li>Supported the narrative structure and ensured gameplay moments aligned with story beats.</li>
-          <li>Implemented parts of the prototype in Unreal Engine to validate mechanics and interaction flow.</li>
+          <li>Supported narrative structure and ensured gameplay moments aligned with story beats.</li>
+          <li>Implemented parts of the prototype in Unreal Engine to test mechanics and interaction flow.</li>
           <li>Iterated on pacing and readability based on internal feedback and playtests.</li>
         </ul>
       </div>
 
-      <h2>Trailer</h2>
-      <div class="videoWrap">
-        <div class="video">
-          <!-- Replace YOUR_YOUTUBE_ID with the actual video ID -->
-          <iframe
-            src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID"
-            title="Dimitria Trailer"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-      <p class="submeta" style="margin-top:10px;">
-        Tip: if your link looks like <em>youtube.com/watch?v=ABC123</em>, the ID is <strong>ABC123</strong>.
-      </p>
-
       <h2>Gallery</h2>
       <div class="gallery">
-        <!-- Replace with your real images -->
+        <!-- PLACEHOLDERS: replace src with your real screenshot filenames later -->
         <div class="shot"><img src="../assets/img/dimitria_01.jpg" alt="Dimitria screenshot 1"></div>
         <div class="shot"><img src="../assets/img/dimitria_02.jpg" alt="Dimitria screenshot 2"></div>
         <div class="shot"><img src="../assets/img/dimitria_03.jpg" alt="Dimitria screenshot 3"></div>
@@ -207,7 +224,7 @@
       <h2>Notes</h2>
       <div class="card">
         <p class="lead" style="margin:0;">
-          The build is not publicly available. The project is presented through the trailer and gameplay materials.
+          The build is not publicly available. The project is presented through the trailer and selected screenshots.
         </p>
       </div>
 
