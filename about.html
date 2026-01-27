@@ -46,11 +46,19 @@
     .tag{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;background:#0f172a;font-size:.9rem;opacity:.95}
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
+    
+.hero{flex-wrap:nowrap;}                
+.profileInfo{flex:1;min-width:320px;}    
+.profileName{margin:0 0 6px 0;font-size:2.2rem;}
+.profileRole{margin:0 0 6px 0;font-size:1.05rem;color:rgba(229,231,235,.85);}
+.profileMeta{margin:0 0 14px 0;font-size:.95rem;color:rgba(229,231,235,.6);}
+.profileTagline{margin:0 0 18px 0;font-style:italic;color:rgba(229,231,235,.9);line-height:1.5;}
 
-    @media (max-width: 800px){
-      .sidebar{position:relative;width:100%;height:auto}
-      .content{margin-left:0;padding:30px 18px 60px}
-    }
+
+   @media (max-width: 800px){
+  .hero{flex-wrap:wrap;}
+  .profileInfo{min-width:0;}
+}
   </style>
 </head>
 
