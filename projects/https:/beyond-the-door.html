@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beyond The Door — Daniel Ostalecki</title>
+
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --panel:#020617;
+      --text:#e5e7eb;
+      --muted: rgba(229,231,235,.70);
+      --accent:#38bdf8;
+      --shadow: 0 16px 50px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh}
+
+    /* Sidebar */
+    .sidebar{width:240px;background:linear-gradient(180deg, rgba(2,6,23,1), rgba(2,6,23,.92));padding:26px 18px;position:fixed;height:100vh;border-right:1px solid rgba(56,189,248,.14)}
+    .sidebarTop{background:rgba(15,23,42,.45);border:1px solid rgba(56,189,248,.18);border-radius:18px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .sidebarTop .nameMini{margin:0;line-height:1.2;font-size:1.15rem}
+    .sidebarTop .nameMini a{color:var(--text);text-decoration:none}
+    .sidebarTop .roleMini{margin-top:6px;line-height:1.2;font-size:.9rem;color:var(--muted)}
+    .nav{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+    .nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;color:var(--text);text-decoration:none;background:rgba(15,23,42,.22);border:1px solid rgba(56,189,248,.10)}
+    .nav a:hover{border-color:rgba(56,189,248,.35);background:rgba(15,23,42,.40)}
+    .dot{width:10px;height:10px;border-radius:999px;background:rgba(229,231,235,.25)}
+    .nav a.active{border-color:rgba(56,189,248,.65);background:rgba(56,189,248,.12)}
+    .nav a.active .dot{background:rgba(56,189,248,.98);box-shadow:0 0 0 4px rgba(56,189,248,.18)}
+
+    /* Content */
+    .content{margin-left:280px;width:100%;padding:50px 30px 80px}
+    .wrap{max-width:1100px;margin:0 auto}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      align-items:start;
+    }
+    .titleRow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    h1{margin:0;font-size:2.2rem}
+    .status{
+      font-size:.78rem;
+      font-weight:600;
+      padding:4px 10px;
+      border-radius:999px;
+      background:rgba(56,189,248,.12);
+      border:1px solid rgba(56,189,248,.35);
+      color:rgba(229,231,235,.78);
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+    .submeta{margin-top:10px;color:var(--muted);line-height:1.6}
+    .lead{margin:12px 0;line-height:1.7;color:rgba(229,231,235,.92)}
+
+    /* Buttons */
+    .btnRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:14px;
+      background:rgba(56,189,248,.12);
+      border:1px solid rgba(56,189,248,.35);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+    }
+    .btn:hover{border-color:rgba(56,189,248,.65);background:rgba(56,189,248,.18)}
+
+    /* Sections */
+    h2{margin:34px 0 12px 0;color:var(--accent)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:12px}
+    .card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .tag{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;background:#0f172a;font-size:.9rem;opacity:.95}
+
+    /* Video */
+    .videoWrap{
+      background:var(--panel);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .video{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      background:#000;
+    }
+    .video iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
+    .videoCaption{margin-top:10px;color:var(--muted);font-size:.95rem;line-height:1.6}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
+    .shot{
+      border-radius:16px;
+      overflow:hidden;
+      background:var(--panel);
+      box-shadow:var(--shadow);
+    }
+    .shot img{width:100%;height:180px;object-fit:cover;display:block}
+
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr}
+    }
+    @media (max-width:800px){
+      .sidebar{position:relative;width:100%;height:auto}
+      .content{margin-left:0;padding:30px 18px 60px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="sidebarTop">
+      <div class="nameMini"><a href="../about.html">Daniel Ostalecki</a></div>
+      <div class="roleMini">Game Designer</div>
+    </div>
+
+    <nav class="nav">
+      <a href="../index.html"><span class="dot"></span>Home</a>
+      <a class="active" href="../projects.html"><span class="dot"></span>Projects</a>
+      <a href="../about.html"><span class="dot"></span>About</a>
+    </nav>
+  </div>
+
+  <div class="content">
+    <div class="wrap">
+
+      <!-- TOP: Title + Description (left) / Gameplay video (right) -->
+      <div class="hero">
+        <div>
+          <div class="titleRow">
+            <h1>Beyond The Door</h1>
+            <span class="status">Prototype</span>
+          </div>
+
+          <div class="submeta">
+            <div>University Team Project (Year 1) · Team of 4</div>
+            <div>Horror · Unity · Playable prototype</div>
+          </div>
+
+          <p class="lead">
+            Beyond The Door is a horror prototype developed during my first university year in Game Design.
+            The story follows a father who, consumed by work, neglects his family—and the evil that hides behind it.
+            Trapped in a time loop, he must uncover what is happening and why.
+          </p>
+
+          <div class="btnRow">
+            <a class="btn" href="https://drive.google.com/drive/folders/1QAaQ-UTA4keMpb8FjwLTKIYh5IMB7a5I" target="_blank" rel="noopener">Build (Google Drive)</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="videoWrap">
+            <div class="video">
+              <iframe
+                src="https://www.youtube.com/embed/fXc326aKwLw"
+                title="Beyond The Door Gameplay"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <div class="videoCaption">
+            Gameplay video · YouTube
+          </div>
+        </div>
+      </div>
+
+      <h2>Quick facts</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Project type</strong><br>
+          <span class="tag">University (Year 1)</span>
+          <span class="tag">Team project</span>
+          <span class="tag">Horror</span>
+        </div>
+
+        <div class="card">
+          <strong>Team</strong><br>
+          <span class="tag">4 people</span>
+        </div>
+
+        <div class="card">
+          <strong>Engine</strong><br>
+          <span class="tag">Unity</span>
+        </div>
+
+        <div class="card">
+          <strong>Media</strong><br>
+          <span class="tag">Gameplay video</span>
+          <span class="tag">Build link</span>
+          <span class="tag">Screenshots</span>
+        </div>
+      </div>
+
+      <h2>My role</h2>
+      <div class="card">
+        <strong>Game Designer · Narrative Designer</strong>
+        <p class="lead" style="margin-bottom:0;">
+          I worked on the game’s core design and narrative direction, shaping the time-loop structure and the player’s progression through key story beats.
+        </p>
+      </div>
+
+      <h2>Design focus</h2>
+      <div class="card">
+        <span class="tag">Narrative-driven horror</span>
+        <span class="tag">Pacing & tension</span>
+        <span class="tag">Time-loop structure</span>
+        <span class="tag">Player guidance & clarity</span>
+      </div>
+
+      <h2>Key contributions</h2>
+      <div class="card">
+        <ul style="margin:0; padding-left:18px; line-height:1.8; color:rgba(229,231,235,.92);">
+          <li>Designed the time-loop structure and the player’s progression across repeated cycles.</li>
+          <li>Developed narrative beats and environmental storytelling elements to support the horror tone.</li>
+          <li>Worked on pacing and tension, focusing on what the player learns each loop.</li>
+          <li>Collaborated with the team to align gameplay flow with narrative goals.</li>
+        </ul>
+      </div>
+
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <!-- PLACEHOLDERS: replace src with your real screenshot filenames later -->
+        <div class="shot"><img src="../assets/img/beyond_01.jpg" alt="Beyond The Door screenshot 1"></div>
+        <div class="shot"><img src="../assets/img/beyond_02.jpg" alt="Beyond The Door screenshot 2"></div>
+        <div class="shot"><img src="../assets/img/beyond_03.jpg" alt="Beyond The Door screenshot 3"></div>
+        <div class="shot"><img src="../assets/img/beyond_04.jpg" alt="Beyond The Door screenshot 4"></div>
+      </div>
+
+      <h2>Notes</h2>
+      <div class="card">
+        <p class="lead" style="margin:0;">
+          The project is presented through the gameplay video and a playable prototype build (Google Drive).
+        </p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
