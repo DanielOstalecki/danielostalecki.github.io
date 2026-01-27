@@ -54,17 +54,32 @@
       transition:transform .18s ease;
     }
     .card:hover{transform:translateY(-6px)}
-   .card img{
-  width:100%;
-  height:280px;
-  object-fit:cover;
-  object-position:center 15%;
-  display:block;
-  background:var(--panel);
-}
+    .card img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+      object-position:center 15%;
+      display:block;
+      background:var(--panel);
+    }
     .t{padding:16px 16px 18px}
     .t h3{margin:0;font-size:1.2rem}
     .meta{margin-top:7px;color:var(--muted);font-size:1rem}
+
+    /* NEW: small badge for academic projects (optional, but clean) */
+    .badge{
+      display:inline-block;
+      margin-top:10px;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.78rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      background:rgba(56,189,248,.12);
+      border:1px solid rgba(56,189,248,.28);
+      color:rgba(229,231,235,.78);
+    }
+
     a{color:inherit;text-decoration:none}
 
     @media (max-width:1000px){
@@ -114,6 +129,29 @@
             <div class="t">
               <h3>Celestial</h3>
               <div class="meta">Alter Learning</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- NEW: University projects -->
+        <div class="card">
+          <a href="projects/dimitria.html">
+            <img src="assets/img/dimitria.jpg" alt="Dimitria">
+            <div class="t">
+              <h3>Dimitria</h3>
+              <div class="meta">University Project</div>
+              <span class="badge">Trailer</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="projects/beyond-the-door.html">
+            <img src="assets/img/beyond-the-door.jpg" alt="Beyond The Door">
+            <div class="t">
+              <h3>Beyond The Door</h3>
+              <div class="meta">University Project</div>
+              <span class="badge">Gameplay</span>
             </div>
           </a>
         </div>
