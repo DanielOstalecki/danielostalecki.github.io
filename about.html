@@ -1,4 +1,114 @@
-/* ===== Mobile hamburger button ===== */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Daniel Ostalecki</title>
+
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --panel:#020617;
+      --text:#e5e7eb;
+      --muted: rgba(229,231,235,.70);
+      --accent:#38bdf8;
+      --shadow: 0 16px 50px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      display:flex;
+      min-height:100vh
+    }
+
+    /* Sidebar (same) */
+    .sidebar{
+      width:240px;
+      background:linear-gradient(180deg, rgba(2,6,23,1), rgba(2,6,23,.92));
+      padding:26px 18px;
+      position:fixed;
+      height:100vh;
+      border-right:1px solid rgba(56,189,248,.14)
+    }
+    .sidebarTop{
+      background:rgba(15,23,42,.45);
+      border:1px solid rgba(56,189,248,.18);
+      border-radius:18px;
+      padding:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25)
+    }
+    .sidebarTop .nameMini{margin:0;line-height:1.2;font-size:1.15rem}
+    .sidebarTop .nameMini a{color:var(--text);text-decoration:none}
+    .sidebarTop .roleMini{margin-top:6px;line-height:1.2;font-size:.9rem;color:var(--muted)}
+    .nav{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+    .nav a{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      color:var(--text);
+      text-decoration:none;
+      background:rgba(15,23,42,.22);
+      border:1px solid rgba(56,189,248,.10)
+    }
+    .nav a:hover{border-color:rgba(56,189,248,.35);background:rgba(15,23,42,.40)}
+    .dot{width:10px;height:10px;border-radius:999px;background:rgba(229,231,235,.25)}
+    .nav a.active{border-color:rgba(56,189,248,.65);background:rgba(56,189,248,.12)}
+    .nav a.active .dot{background:rgba(56,189,248,.98);box-shadow:0 0 0 4px rgba(56,189,248,.18)}
+
+    /* Content */
+    .content{margin-left:280px;width:100%;padding:50px 30px 80px}
+    .wrap{max-width:1000px;margin:0 auto}
+
+    /* HERO */
+    .hero{
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+      flex-wrap:nowrap; /* IMPORTANT: keep photo + info side-by-side on desktop */
+    }
+    .photo{
+      width:170px;
+      height:170px;
+      border-radius:18px;
+      overflow:hidden;
+      background:#000;
+      box-shadow:var(--shadow);
+      flex:0 0 auto
+    }
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Profile info next to photo */
+    .profileInfo{flex:1;min-width:320px}
+    .profileName{margin:0 0 6px 0;font-size:2.2rem;line-height:1.1}
+    .profileRole{margin:0 0 6px 0;font-size:1.05rem;color:rgba(229,231,235,.85)}
+    .profileMeta{margin:0 0 14px 0;font-size:.95rem;color:rgba(229,231,235,.60)}
+    .profileTagline{
+      margin:0;
+      font-style:italic;
+      color:rgba(229,231,235,.9);
+      line-height:1.5;
+    }
+
+    /* About text */
+    .aboutBlock{margin-top:18px}
+
+    .lead{line-height:1.65;color:rgba(229,231,235,.9);margin:10px 0}
+    h1{margin:0 0 10px 0;font-size:2.2rem}
+    h2{margin:34px 0 12px 0;color:var(--accent)}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:12px}
+    .card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .tag{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;background:#0f172a;font-size:.9rem;opacity:.95}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* ===== Mobile hamburger button ===== */
 .menuToggle{
   display:none;
   position:fixed;
@@ -52,3 +162,115 @@
   display:block;
   opacity:1;
 }
+
+    @media (max-width: 800px){
+      .sidebar{position:relative;width:100%;height:auto}
+      .content{margin-left:0;padding:30px 18px 60px}
+
+      .hero{flex-wrap:wrap;}     /* on mobile it's OK to stack */
+      .profileInfo{min-width:0;} /* prevent overflow */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="sidebarTop">
+      <div class="nameMini"><a href="about.html">Daniel Ostalecki</a></div>
+      <div class="roleMini">Game Designer</div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html"><span class="dot"></span>Home</a>
+      <a href="projects.html"><span class="dot"></span>Projects</a>
+      <a class="active" href="about.html"><span class="dot"></span>About</a>
+    </nav>
+  </div>
+
+  <div class="content">
+    <div class="wrap">
+
+      <!-- HERO: photo + profile info SIDE BY SIDE -->
+      <div class="hero">
+        <div class="photo">
+          <img src="assets/img/profile.jpg" alt="Daniel Ostalecki">
+        </div>
+
+        <div class="profileInfo">
+          <h1 class="profileName">Daniel Francicek Ostalecki</h1>
+          <p class="profileRole">Game Designer</p>
+          <p class="profileMeta">Born in 2002 · Based in Italy</p>
+          <p class="profileTagline">Turning mechanics into meaningful player experiences</p>
+        </div>
+      </div>
+
+      <!-- About text stays as About section -->
+      <div class="aboutBlock">
+        <h2>About</h2>
+        <p class="lead">
+          I'm a game designer with a solid foundation in game mechanics, prototyping, and interactive storytelling.
+          My goal is to offer the user a pleasant experience, something that can convey emotions, just like after watching a movie or reading a book.
+        </p>
+        <p class="lead">
+          My passion is developing innovative projects that combine creativity and technical precision.
+          I'm highly motivated and always eager to learn more about the infinite world of video games.
+        </p>
+      </div>
+
+      <h2>Education</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Technical Diploma — IT (Computer Science)</strong>
+          <p class="lead" style="margin:8px 0 0 0">Technical high school diploma with an IT focus.</p>
+        </div>
+        <div class="card">
+          <strong>Bachelor in Game Design</strong>
+          <p class="lead" style="margin:8px 0 0 0">Quasar Institute for Advanced Design (Rome) — 2021–2024</p>
+        </div>
+      </div>
+
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Design</strong><br>
+          <span class="tag">Game mechanics</span>
+          <span class="tag">Game flow</span>
+          <span class="tag">Balancing</span>
+          <span class="tag">Playtesting</span>
+        </div>
+
+        <div class="card">
+          <strong>Production</strong><br>
+          <span class="tag">Prototyping & iteration</span>
+          <span class="tag">GDD</span>
+          <span class="tag">Feature Planning</span>
+          <span class="tag">Documentation</span>
+        </div>
+
+        <div class="card">
+          <strong>Tools</strong><br>
+          <span class="tag">Unreal Engine 5</span>
+          <span class="tag">Unity</span>
+          <span class="tag">Blueprint prototyping</span>
+          <span class="tag">GitHub</span>
+        </div>
+
+        <div class="card">
+          <strong>Languages</strong><br>
+          <span class="tag">Italian (Native)</span>
+          <span class="tag">Polish (Native)</span>
+          <span class="tag">English (B2)</span>
+        </div>
+      </div>
+
+     <h2>Contact</h2>
+           <div class="card">
+              Email: <a href="mailto:d.ostalecki@gmail.com">d.ostalecki@gmail.com</a><br><br>
+              ArtStation: <a href="https://www.artstation.com/danielostalecki" target="_blank" rel="noopener">artstation.com/danielostalecki</a><br><br>
+              Linkedin: <a href="https://www.linkedin.com/in/daniel-franciszek-ostalecki-02-05-21-/" target="_blank" rel="noopener">linkedin.com/danielostalecki
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
